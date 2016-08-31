@@ -1,0 +1,20 @@
+BOARD_DTBTOOL_ARGS := -2
+
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET     := 0x01000000
+
+ENABLE_CPUSETS := true
+
+ifneq ($(FORCE_32_BIT),true)
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916_64
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_USES_UNCOMPRESSED_KERNEL := true
+else
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916_32
+endif
