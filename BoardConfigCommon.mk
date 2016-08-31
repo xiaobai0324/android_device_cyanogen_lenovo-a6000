@@ -15,3 +15,8 @@
 
 # Include board config fragments
 include device/cyanogen/msm8916-common/board/*.mk
+
+# Radio
+ADD_RADIO_FILES := true
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
+
